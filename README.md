@@ -3,13 +3,17 @@ Inspired in the project [Sherlock](https://github.com/TheYahya/sherlock), create
 
 ## Usage
 
+1. clone the repository 
 ```
-# clone the repo
 $ git clone https://github.com/IgorRozani/sherlock.git
+```
 
-# change the working directory to sherlock
+2. change the working directory to sherlock
+```
 $ cd sherlock
+```
 
-# run the project
+3. run the project
+```
 $ go run main.go [username]
 ```
