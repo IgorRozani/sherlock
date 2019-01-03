@@ -14,20 +14,13 @@ type site struct {
 }
 
 func main() {
-	sites := convertJSONToStruck()
+	s := convertJSONToStruck()
 
 	u := getUsername()
 
-	fmt.Println("Checking username", u)
+	fmt.Printf("🔎 Checking username \"%v\"\n", u)
 
-	c := make(chan string)
-	for _, s := range sites {
-		go checkWebSite(s, u, c)
-	}
-
-	for i := 0; i < len(sites); i++ {
-		fmt.Println(<-c)
-	}
+	verifySites(s, u)
 }
 
 func getUsername() string {
@@ -60,8 +53,19 @@ func checkWebSite(s site, u string, c chan string) {
 	resp, _ := http.Get(s.Link + u)
 
 	if resp.StatusCode != 200 {
-		c <- s.Name + ": Free"
+		c <- s.Name + ": 👍 Free"
 		return
 	}
-	c <- s.Name + ": Used"
+	c <- s.Name + ": 👎 Used"
+}
+
+func verifySites(sites []site, u string) {
+	c := make(chan string)
+	for _, s := range sites {
+		go checkWebSite(s, u, c)
+	}
+
+	for i := 0; i < len(sites); i++ {
+		fmt.Println(<-c)
+	}
 }
