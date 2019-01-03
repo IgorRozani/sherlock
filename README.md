@@ -1,5 +1,5 @@
 # Sherlock
-Inspired in the project [Sherlock](https://github.com/TheYahya/sherlock), created by [TheYahya](https://github.com/TheYahya) in python, i decided to recreate in Go.
+Inspired in the project [Sherlock](https://github.com/TheYahya/sherlock), created by [TheYahya](https://github.com/TheYahya) in python, i decided to recreate it in Go.
 
 ## How to use
 
