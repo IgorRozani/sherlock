@@ -50,7 +50,12 @@ func readJSON() []byte {
 }
 
 func checkWebSite(s site, u string, c chan string) {
-	resp, _ := http.Get(s.Link + u)
+	resp, err := http.Get(s.Link + u)
+
+	if err != nil {
+		c <- s.Name + ": ❌ Verification fail"
+		return
+	}
 
 	if resp.StatusCode != 200 {
 		c <- s.Name + ": 👍 Free"
