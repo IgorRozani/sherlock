@@ -17,3 +17,6 @@ $ cd sherlock
 ```
 $ go run main.go [username]
 ```
+
+## Articles
+Learn more about this project in this article (in portuguese): https://medium.com/@igorrozani/recriando-o-projeto-sherlock-em-go-cf59e235ce0b
